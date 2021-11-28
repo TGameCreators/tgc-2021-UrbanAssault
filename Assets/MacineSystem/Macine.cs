@@ -12,14 +12,20 @@ public class Macine : ImgMacine
     int BulletNumofFiring;
     Vector3 MaxSpeed;
     Vector3 Speed;
+    Rigidbody Rb;
     void Start()
     {
-        Rigidbody Rb = this.gameObject.GetComponent<Rigidbody>();
+        Rb = this.gameObject.GetComponent<Rigidbody>();
+    }
+    void Update()
+    {
+        Accelerate(Rb);
     }
 
-    public Macine(int num):base(num)
+    public Macine(int num,float Attack,float Acceleration):base(num)
     {
-
+        this.Attack = Attack;
+        this.Acceleration = Acceleration;
     }
 
     public void Accelerate(Rigidbody Rb)
@@ -50,6 +56,10 @@ public class Macine : ImgMacine
         }
         return false;
     }
+    public void Rotate()
+    {
+
+    }
 
     public void Firing()
     {
@@ -58,7 +68,7 @@ public class Macine : ImgMacine
 
     public void Break()
     {
-
+        
     }
 
     public void DecelerateSpeed()
@@ -66,8 +76,5 @@ public class Macine : ImgMacine
 
     }
 
-    public void Rotate()
-    {
 
-    }
 }
