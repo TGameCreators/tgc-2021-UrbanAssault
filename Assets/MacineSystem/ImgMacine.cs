@@ -5,7 +5,11 @@ using UnityEngine;
 public class ImgMacine : MonoBehaviour
 {
     public int Macinenumber;//æ•¨‚ÌID
-    public ImgMacine (int num)
+    private void Start()
+    {
+        
+    }
+    public void ConstructorImgMacine(int num)
     {
         this.Macinenumber = num;
     }
