@@ -9,12 +9,13 @@ public class Fighter : Macine
     [SerializeField] float speed;         //速度
     [SerializeField] float cl;            //揚力係数
 
+    [SerializeField] protected Rigidbody Rb;
+
 
     // Start is called before the first frame update
-    public override void Start()
+    public void Start()
     {
-        base.Start();
-        MaxSpeed = new Vector3(10,10,10);
+        Rb = this.gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -28,10 +29,9 @@ public class Fighter : Macine
         Accelerate();
     }
 
-    public Fighter(int num, float Attack, float Acceleration) : base(num,Attack,Acceleration)
+    public Fighter(int num, float Attack, float Acceleration)
     {
-        this.Attack = Attack;
-        this.Acceleration = Acceleration;
+
     }
 
     void Accelerate()
@@ -58,7 +58,7 @@ public class Fighter : Macine
 
     //参考　https://teratail.com/questions/331607
 
-    public override void Rotate()
+    public void Rotate()
     {
         if (Input.GetKey(KeyCode.D))
         {
