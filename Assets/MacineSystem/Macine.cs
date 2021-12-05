@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Macine : ImgMacine
 {
-    float Attack;
-    float Acceleration;
+    protected float Attack;//privateからprotectedに変更した　志村
+    protected float Acceleration;//privateからprotectedに変更した　志村
     float Decelerate;
     float DelayTimeofFiring;
     float RotateSpeed;
     int BulletNumofFiring;
-    Vector3 MaxSpeed;
+    protected Vector3 MaxSpeed;//privateからprotectedに変更した 志村
     Vector3 Speed;
-    Rigidbody Rb;
-    void Start()
+    protected Rigidbody Rb;
+
+    public virtual void Start()
     {
         Rb = this.gameObject.GetComponent<Rigidbody>();
     }
@@ -56,7 +57,7 @@ public class Macine : ImgMacine
         }
         return false;
     }
-    public void Rotate()
+    public virtual void Rotate()
     {
 
     }
