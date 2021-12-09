@@ -19,5 +19,6 @@ public class Base_Tank : Macine
     void Update()
     {
         base.Accelerate(Rb);
+        base.Rotate();
     }
 }

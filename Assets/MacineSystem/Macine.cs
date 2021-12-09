@@ -15,6 +15,8 @@ public class Macine : ImgMacine
     [SerializeField] private Vector3 Speed;
     
 
+
+
     public void ConstructorMacine(int num, float Attack, float Acceleration, float Decelerate, float DelayTimeofFiring, float RotateSpeed, int BulletNumofFiring, Vector3 MaxSpeed) 
     {
         ConstructorImgMacine(num);
@@ -30,16 +32,18 @@ public class Macine : ImgMacine
     public void Accelerate(Rigidbody Rb)//ëOêiÇ÷ÇÃâ¡ë¨
     {
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            Debug.Log("Input'W'");
+        
+            
             if (SpeedComparison())
             {
                 Debug.Log("Moob");
-                Rb.AddForce(transform.forward * Acceleration);
-                
+                Rb.AddForce(transform.forward * Acceleration* Input.GetAxis("Horizontal"));
+
+
             }
-        }
+        
+        
+        
 
     }
 
@@ -76,7 +80,17 @@ public class Macine : ImgMacine
     }
     public void Rotate()//âÒì]
     {
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
 
+            this.gameObject.transform.Rotate(new Vector3(0, -RotateSpeed, 0));
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+
+            this.gameObject.transform.Rotate(new Vector3(0, RotateSpeed, 0));
+
+        }
     }
 
     public void Firing()//î≠éÀ
