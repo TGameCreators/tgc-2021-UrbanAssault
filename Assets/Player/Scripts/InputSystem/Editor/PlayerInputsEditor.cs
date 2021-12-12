@@ -19,7 +19,7 @@ public class PlayerInputsEditor : Editor
             EditorGUILayout.LabelField("arrow");
             using (new GUILayout.VerticalScope())
             {
-                EditorGUILayout.LabelField(playerInputs.up ? "　↑":"");
+                EditorGUILayout.LabelField(playerInputs.up ? "　↑" : "");
                 EditorGUILayout.LabelField(
                     (playerInputs.left ? "←" : "　") +
                     (playerInputs.down ? "↓" : "　") +
@@ -33,7 +33,11 @@ public class PlayerInputsEditor : Editor
             EditorGUILayout.Toggle("accel", playerInputs.accel);
             EditorGUILayout.Toggle("decel", playerInputs.decel);
         }
-
+        using (new GUILayout.HorizontalScope())
+        {
+            EditorGUILayout.Toggle("map", playerInputs.map);
+            EditorGUILayout.Toggle("squad", playerInputs.squad);
+        }
 
     }
 }
