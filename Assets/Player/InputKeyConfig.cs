@@ -2,8 +2,8 @@
 //fileName	このタイプの新しく作成されるインスタンスで使用するデフォルトのファイル名
 //menuName Assets/Create メニューに表示されるこのタイプの表示名
 //order	Assets/Create メニュー内のメニューアイテムの位置
-[CreateAssetMenu(fileName = "defaultKeyBind", menuName = "ScriptableObjects/InputKeyManager", order = 1)]
-public class InputKeyManager : ScriptableObject
+[CreateAssetMenu(fileName = "defaultKeyConfig", menuName = "ScriptableObjects/InputKeyConfig", order = 1)]
+public class InputKeyConfig : ScriptableObject
 {
     [SerializeField] private KeyCode Up = KeyCode.UpArrow;
     [SerializeField] private KeyCode Down = KeyCode.DownArrow;
