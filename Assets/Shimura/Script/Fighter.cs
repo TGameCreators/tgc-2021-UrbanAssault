@@ -11,6 +11,9 @@ public class Fighter : Macine
 
     [SerializeField] protected Rigidbody Rb;
 
+    float XZRotate;//戦闘機を左右に旋回させる
+    float XYRotate;//戦闘機を上下に向ける
+
 
     // Start is called before the first frame update
     public void Start()
@@ -26,7 +29,8 @@ public class Fighter : Macine
 
     private void FixedUpdate()
     {
-        Accelerate();
+        Accelerate();//正面に進む
+        TurnAround();//WASDで進む方向を変える
     }
 
     public Fighter(int num, float Attack, float Acceleration)
@@ -58,15 +62,12 @@ public class Fighter : Macine
 
     //参考　https://teratail.com/questions/331607
 
-    public void Rotate()
+    public void TurnAround()
     {
-        if (Input.GetKey(KeyCode.D))
-        {
-            //機体を傾けて右へ曲がる
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            //機体を傾けて左へ曲がる
-        }
+        if (Input.GetKey(KeyCode.W) && XYRotate > -30) XYRotate -= 0.5f;//機首を上げる
+        if (Input.GetKey(KeyCode.S) && XYRotate < 30) XYRotate += 0.5f;//機首を下げる
+        if (Input.GetKey(KeyCode.D)) XZRotate += 0.5f;//右旋回
+        if (Input.GetKey(KeyCode.A)) XZRotate -= 0.5f;//左旋回
+        transform.rotation = Quaternion.Euler(XYRotate, XZRotate, 0);
     }
 }
