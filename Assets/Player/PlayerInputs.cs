@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInputs : MonoBehaviour
 {
     [SerializeField]
-    private InputKeyManager keyManager;
+    private InputKeyConfig keyConfig;
     /// <summary>
     /// 上下左右入力をVec2で取得
     /// </summary>
@@ -33,7 +33,7 @@ public class PlayerInputs : MonoBehaviour
 
     void Start()
     {
-        if (keyManager == null) Debug.LogError("InputKeyManagerを設定してください");
+        if (keyConfig == null) Debug.LogError("InputKeyManagerを設定してください");
     }
 
     void Update()
@@ -46,24 +46,24 @@ public class PlayerInputs : MonoBehaviour
     /// </summary>
     private void HoldKeys()
     {
-        up = Input.GetKey(keyManager.up);
-        down = Input.GetKey(keyManager.down);
-        left = Input.GetKey(keyManager.left);
-        right = Input.GetKey(keyManager.right);
-        fire = Input.GetKey(keyManager.fire);
-        accel = Input.GetKey(keyManager.accel);
-        decel = Input.GetKey(keyManager.decel);
+        up = Input.GetKey(keyConfig.up);
+        down = Input.GetKey(keyConfig.down);
+        left = Input.GetKey(keyConfig.left);
+        right = Input.GetKey(keyConfig.right);
+        fire = Input.GetKey(keyConfig.fire);
+        accel = Input.GetKey(keyConfig.accel);
+        decel = Input.GetKey(keyConfig.decel);
     }
     /// <summary>
     /// 押したら切り替えキー
     /// </summary>
     private void SwitchKeys()
     {
-        if (Input.GetKeyDown(keyManager.map))
+        if (Input.GetKeyDown(keyConfig.map))
         {
             map = !map;
         }
-        if (Input.GetKeyDown(keyManager.squad))
+        if (Input.GetKeyDown(keyConfig.squad))
         {
             squad = !squad;
         }
