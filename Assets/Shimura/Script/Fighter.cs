@@ -42,8 +42,6 @@ public class Fighter : Macine
     {
         var forces = Vector3.zero;
         forces = speed * transform.forward;
-        Debug.Log("transform.forward"+ transform.forward);
-        Debug.Log("forces" + forces);
         //—g—Í‚Ì•ûŒü
         Vector3 liftDirection = Vector3.Cross(Rb.velocity, transform.forward).normalized;
         var liftPower = lift(airDensity, wingsArea, speed, cl) / 1000 * Time.deltaTime;

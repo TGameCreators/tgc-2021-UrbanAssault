@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Macinenumber: 0
-  Attack: 0
+  Attack: 12
   Acceleration: 0
   Decelerate: 0
   DelayTimeofFiring: 0

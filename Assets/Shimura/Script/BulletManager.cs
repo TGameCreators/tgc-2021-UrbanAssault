@@ -18,7 +18,7 @@ public class BulletManager : MonoBehaviour
     {
         ChangeBullet();
         //Debug.Log("UsingBullet=" + UsingBullet) ;
-        Debug.Log("BulletNumber="+BulletNumber );
+        //Debug.Log("BulletNumber="+BulletNumber );
     }
 
     void ChangeBullet()
