@@ -29,29 +29,11 @@ public class Macine : ImgMacine
         this.MaxSpeed = MaxSpeed;
     }
 
-    public void Accelerate(Rigidbody Rb)//前進への加速
-    {
-
-        
-            
-            if (SpeedComparison())
-            {
-                Debug.Log("Moob");
-                Rb.AddForce(transform.forward * Acceleration* Input.GetAxis("Horizontal"));
-
-
-            }
-        
-        
-        
-
-    }
+    
 
     public bool SpeedComparison()//現在のスピードとMaxスピードを比較
     {
         Debug.Log("Comparison");
-        Measurement();
-
 
         if (Speed.x < MaxSpeed.x)
         {
@@ -69,29 +51,8 @@ public class Macine : ImgMacine
         }
         return false;
     }
-    public async void Measurement()//現在のスピードを算出する
-    {
-        Vector3 Time = this.gameObject.transform.position;
-        await Task.Delay(1000);
-        Vector3 Time2 = this.gameObject.transform.position;
-        Speed.x =Mathf.Abs(Mathf.Sqrt(Time.x * Time.x) - Mathf.Sqrt(Time2.x * Time.x));
-        Speed.y = Mathf.Abs(Mathf.Sqrt(Time.y * Time.y) - Mathf.Sqrt(Time2.y * Time.y));
-        Speed.z = Mathf.Abs(Mathf.Sqrt(Time.z * Time.z) - Mathf.Sqrt(Time2.z * Time.z));
-    }
-    public void Rotate()//回転
-    {
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-
-            this.gameObject.transform.Rotate(new Vector3(0, -RotateSpeed, 0));
-        }
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-
-            this.gameObject.transform.Rotate(new Vector3(0, RotateSpeed, 0));
-
-        }
-    }
+    
+    
 
     public void Firing()//発射
     {
@@ -107,6 +68,21 @@ public class Macine : ImgMacine
     {
 
     }
+    public float GetAcceleration()
+    {
+        return Acceleration;
+    }
+    public float GetRotateSpeed()
+    {
+        return RotateSpeed;
+    }
+    public void SetSpeed(Vector3 vec)
+    {
+        Speed.x = Mathf.Abs(vec.x);
+        Speed.y = Mathf.Abs(vec.y);
+        Speed.z = Mathf.Abs(vec.z);
+    }
+
 
 
 }
