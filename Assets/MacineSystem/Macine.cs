@@ -31,6 +31,11 @@ public class Macine : ImgMacine
 
     
 
+    public float GetAttack()//Attackのgetter
+    {
+        return Attack;
+    }
+
     public bool SpeedComparison()//現在のスピードとMaxスピードを比較
     {
         Debug.Log("Comparison");
