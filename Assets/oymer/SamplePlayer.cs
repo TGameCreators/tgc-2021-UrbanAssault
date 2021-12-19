@@ -22,6 +22,6 @@ public class SamplePlayer : MonoBehaviour
         transform.position += transform.forward * speed * Time.deltaTime;
 
         Vector3 input = inputs.arrow;//arrowは取得するたびに計算するため、キャッシュする
-        transform.Rotate(new Vector3(input.y, input.x, 0) * Time.deltaTime * 10);
+        transform.Rotate(new Vector3(-input.y, input.x, 0) * Time.deltaTime * 10);
     }
 }
