@@ -11,21 +11,17 @@ public class SamplePlayer : MonoBehaviour
         inputs = GetComponent<PlayerInputs>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (inputs.accel && speed < 10) speed += Time.deltaTime;
-        if(inputs.decel && speed > 0)
+        if (inputs.decel && speed > 0)
         {
             speed -= Time.deltaTime;
             if (speed < 0) speed = 0;
         }
         transform.position += transform.forward * speed * Time.deltaTime;
-        transform.Rotate(getRotate() * Time.deltaTime * 10);
-    }
-    Vector3 getRotate()
-    {
-        Vector3 input = inputs.arrow;
-        return new Vector3(input.y, input.x, 0);
+
+        Vector3 input = inputs.arrow;//arrowは取得するたびに計算するため、キャッシュする
+        transform.Rotate(new Vector3(-input.y, input.x, 0) * Time.deltaTime * 10);
     }
 }
