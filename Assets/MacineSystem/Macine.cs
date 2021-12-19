@@ -81,6 +81,10 @@ public class Macine : ImgMacine
     {
         return RotateSpeed;
     }
+    public float GetDelayTimeofFiring()
+    {
+        return DelayTimeofFiring;
+    }
     public void SetSpeed(Vector3 vec)
     {
         Speed.x = Mathf.Abs(vec.x);
