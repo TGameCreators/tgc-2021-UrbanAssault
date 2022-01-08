@@ -12,7 +12,7 @@ public class Macine : ImgMacine
     [SerializeField] private float RotateSpeed;
     [SerializeField] private int BulletNumofFiring;
     [SerializeField] private Vector3 MaxSpeed;
-    [SerializeField] private Vector3 Speed;
+    [SerializeField] private float Speed;
     
 
 
@@ -38,22 +38,13 @@ public class Macine : ImgMacine
 
     public bool SpeedComparison()//現在のスピードとMaxスピードを比較
     {
-        Debug.Log("Comparison");
+        //Debug.Log("Comparison");
 
-        if (Speed.x < MaxSpeed.x)
+        if (MaxSpeed.sqrMagnitude > Speed)
         {
-            Debug.Log("ComparisonX");
-            if (Speed.y<MaxSpeed.y)
-            {
-                Debug.Log("ComparisonY");
-                if (Speed.z<MaxSpeed.z)
-                {
-                    Debug.Log("ComparisonY");
-                    return true;
-                }
-            }
-            
+            return true;
         }
+        Debug.Log("速度制限");
         return false;
     }
     
@@ -85,11 +76,9 @@ public class Macine : ImgMacine
     {
         return DelayTimeofFiring;
     }
-    public void SetSpeed(Vector3 vec)
+    public void SetSpeed(float speed)
     {
-        Speed.x = Mathf.Abs(vec.x);
-        Speed.y = Mathf.Abs(vec.y);
-        Speed.z = Mathf.Abs(vec.z);
+        Speed = speed;
     }
 
 
