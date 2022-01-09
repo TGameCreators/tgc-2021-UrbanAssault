@@ -9,6 +9,7 @@ using UnityEngine;
 
 public abstract class Bullet : MonoBehaviour
 {
+    [Tooltip("’e‚Ìí—Ş")]
     protected Rigidbody BulletRig;
     float Timer;
     [SerializeField,Tooltip("’e‚ÌÁ–ÅŠÔ")] 
