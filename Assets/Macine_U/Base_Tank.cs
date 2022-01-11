@@ -10,9 +10,9 @@ public class Base_Tank : Macine
     {
         Rb = this.gameObject.GetComponent<Rigidbody>();
     }
-    public void ConstructorBase_Tank(int num, float Attack, float Acceleration, float Decelerate, float DelayTimeofFiring, float RotateSpeed, int BulletNumofFiring, Vector3 MaxSpeed) 
+    public void ConstructorBase_Tank(int num, float Acceleration, float Decelerate, float RotateSpeed, int BulletNumofFiring, Vector3 MaxSpeed) 
     {
-        ConstructorMacine(num, Attack, Acceleration, Decelerate, DelayTimeofFiring, RotateSpeed, BulletNumofFiring, MaxSpeed);
+        ConstructorMacine(num, Acceleration, Decelerate, RotateSpeed, BulletNumofFiring, MaxSpeed);
     }
 
     // Update is called once per frame

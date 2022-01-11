@@ -5,23 +5,21 @@ using System.Threading.Tasks;
 
 public class Macine : ImgMacine
 {
-    [SerializeField] private float Attack;
-    [SerializeField] private float Acceleration;
+    //[SerializeField] private float Attack;
+    [SerializeField,Tooltip("ƒ}ƒVƒ“‚Ì‰Á‘¬“x")] private float Acceleration;
     [SerializeField] private float Decelerate;
-    [SerializeField] private float DelayTimeofFiring;
+    //[SerializeField] private float DelayTimeofFiring;
     [SerializeField] private float RotateSpeed;
     [SerializeField] private int BulletNumofFiring;
     [SerializeField] private Vector3 MaxSpeed;
     [SerializeField] private Vector3 Speed;
     
 
-    public void ConstructorMacine(int num, float Attack, float Acceleration, float Decelerate, float DelayTimeofFiring, float RotateSpeed, int BulletNumofFiring, Vector3 MaxSpeed) 
+    public void ConstructorMacine(int num, float Acceleration, float Decelerate, float RotateSpeed, int BulletNumofFiring, Vector3 MaxSpeed) 
     {
         ConstructorImgMacine(num);
-        this.Attack = Attack;
         this.Acceleration = Acceleration;
         this.Decelerate = Decelerate;
-        this.DelayTimeofFiring = DelayTimeofFiring;
         this.RotateSpeed = RotateSpeed;
         this.BulletNumofFiring = BulletNumofFiring;
         this.MaxSpeed = MaxSpeed;
