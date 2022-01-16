@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 1235659808541329109, guid: 1b1c3183f96b94142bc099acc524c544, type: 3}
   bullet: {fileID: 0}
+  Gun: {fileID: 0}
 --- !u!65 &156696024
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -360,6 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 1235659808541329109, guid: 1b1c3183f96b94142bc099acc524c544, type: 3}
   bullet: {fileID: 0}
+  Gun: {fileID: 0}
 --- !u!65 &471892778
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -470,6 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 1235659808541329109, guid: 1b1c3183f96b94142bc099acc524c544, type: 3}
   bullet: {fileID: 0}
+  Gun: {fileID: 0}
 --- !u!65 &650120194
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -580,6 +583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 1235659808541329109, guid: 1b1c3183f96b94142bc099acc524c544, type: 3}
   bullet: {fileID: 0}
+  Gun: {fileID: 0}
 --- !u!65 &810644666
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -765,4 +769,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1235659808541329109, guid: 1b1c3183f96b94142bc099acc524c544, type: 3}
-  bullet: {fileID: 1309450134133179350, guid: 75d47f607df440f4786e0bb7c96f147c, type: 3}
+  bullet: {fileID: 8696098615215560871, guid: 52d3f81147e6e6a4a8365e8562c57c94, type: 3}
+  Gun: {fileID: 0}

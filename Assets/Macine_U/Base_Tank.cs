@@ -21,7 +21,11 @@ public class Base_Tank : Macine
         Vector3 Time1 = this.gameObject.transform.position;
         DelayTimeofFiring = GetDelayTimeofFiring();
         ThisTank = this.gameObject;
+
+        //èeå˚ÇÃíTçı
         Muzzle = transform.Find("GUN/Gun").gameObject;
+
+        //èeÇÃíTçı
         Gun= transform.Find("GUN").gameObject;
         
 
@@ -87,8 +91,8 @@ public class Base_Tank : Macine
     /// </summary>
     public void Fire()
     {
-        vec = Gun.transform.position;
-        GameObject bullet=Instantiate(Bullet, vec, Quaternion.identity);
+        vec = Muzzle.transform.position;
+        GameObject bullet=Instantiate(Bullet, vec,this.transform.rotation);
         bullet.GetComponent<Bullet_Tank>().Fire(Muzzle);
         
     }
