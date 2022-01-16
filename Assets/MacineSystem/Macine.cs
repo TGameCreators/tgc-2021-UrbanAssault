@@ -1,14 +1,14 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
 
 public class Macine : ImgMacine
 {
-    [SerializeField] private float Attack;
-    [SerializeField] private float Acceleration;
+    //[SerializeField] private float Attack;
+    [SerializeField,Tooltip("ãƒã‚·ãƒ³ã®åŠ é€Ÿåº¦")] private float Acceleration;
     [SerializeField] private float Decelerate;
-    [SerializeField] private float DelayTimeofFiring;
+    //[SerializeField] private float DelayTimeofFiring;
     [SerializeField] private float RotateSpeed;
     [SerializeField] private int BulletNumofFiring;
     [SerializeField] private Vector3 MaxSpeed;
@@ -16,14 +16,11 @@ public class Macine : ImgMacine
     
 
 
-
-    public void ConstructorMacine(int num, float Attack, float Acceleration, float Decelerate, float DelayTimeofFiring, float RotateSpeed, int BulletNumofFiring, Vector3 MaxSpeed) 
+    public void ConstructorMacine(int num, float Acceleration, float Decelerate, float RotateSpeed, int BulletNumofFiring, Vector3 MaxSpeed) 
     {
         ConstructorImgMacine(num);
-        this.Attack = Attack;
         this.Acceleration = Acceleration;
         this.Decelerate = Decelerate;
-        this.DelayTimeofFiring = DelayTimeofFiring;
         this.RotateSpeed = RotateSpeed;
         this.BulletNumofFiring = BulletNumofFiring;
         this.MaxSpeed = MaxSpeed;
@@ -31,12 +28,7 @@ public class Macine : ImgMacine
 
     
 
-    public float GetAttack()//Attack‚Ìgetter
-    {
-        return Attack;
-    }
-
-    public bool SpeedComparison()//Œ»İ‚ÌƒXƒs[ƒh‚ÆMaxƒXƒs[ƒh‚ğ”äŠr
+    public bool SpeedComparison()//ç¾åœ¨ã®ã‚¹ãƒ”ãƒ¼ãƒ‰ã¨Maxã‚¹ãƒ”ãƒ¼ãƒ‰ã‚’æ¯”è¼ƒ
     {
         //Debug.Log("Comparison");
 
@@ -44,23 +36,23 @@ public class Macine : ImgMacine
         {
             return true;
         }
-        Debug.Log("‘¬“x§ŒÀ");
+        Debug.Log("é€Ÿåº¦åˆ¶é™");
         return false;
     }
     
     
 
-    public void Firing()//”­Ë
+    public void Firing()//ç™ºå°„
     {
 
     }
 
-    public void Break()//‰ó‚ê‚é
+    public void Break()//å£Šã‚Œã‚‹
     {
 
     }
 
-    public void DecelerateSpeed()//Œ¸‘¬
+    public void DecelerateSpeed()//æ¸›é€Ÿ
     {
 
     }

@@ -9,11 +9,13 @@ using UnityEngine;
 
 public abstract class Bullet : MonoBehaviour
 {
+    [Tooltip("弾の種類")]
     protected Rigidbody BulletRig;
     float Timer;
-    public float DeleteTime;//弾が生成されてから消えるまでの時間
-    public int Speed = 1000;
-    [SerializeField] float Attack;//弾の攻撃力（Fighterスクリプト→Weaponスクリプト→Bulletスクリプトで取得）
+    [SerializeField,Tooltip("弾の消滅時間")] 
+    float DeleteTime;
+    [Tooltip("弾の攻撃力（Gunスクリプトから取得）")] 
+    float Attack;//Gunスクリプト→Bulletスクリプトで取得）
 
 
 
