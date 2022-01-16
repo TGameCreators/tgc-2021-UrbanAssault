@@ -1,4 +1,4 @@
-ï»¿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,9 +12,9 @@ public class Base_Tank : Macine
     public int BulletSpeed=100;
     float DelayTimeofFiring;
     private GameObject ThisTank;
-    [SerializeField]public GameObject Muzzle;//éŠƒå£
-    [SerializeField] public GameObject Gun;//éŠƒ
-    Vector3 vec;//éŠƒã®ä½ç½®
+    [SerializeField]public GameObject Muzzle;//eŒû
+    [SerializeField] public GameObject Gun;//e
+    Vector3 vec;//e‚ÌˆÊ’u
     void Start()
     {
         Rb = this.gameObject.GetComponent<Rigidbody>();
@@ -22,19 +22,18 @@ public class Base_Tank : Macine
         DelayTimeofFiring = GetDelayTimeofFiring();
         ThisTank = this.gameObject;
 
-        //éŠƒå£ã®æ¢ç´¢
+        //eŒû‚Ì’Tõ
         Muzzle = transform.Find("GUN/Gun").gameObject;
 
-        //éŠƒã®æ¢ç´¢
+        //e‚Ì’Tõ
         Gun= transform.Find("GUN").gameObject;
         
 
     }
 
-    public void ConstructorBase_Tank(int num, float Acceleration, float Decelerate, float RotateSpeed, int BulletNumofFiring, Vector3 MaxSpeed) 
-
+    public void ConstructorBase_Tank(int num, float Attack, float Acceleration, float Decelerate, float DelayTimeofFiring, float RotateSpeed, int BulletNumofFiring, Vector3 MaxSpeed) 
     {
-        ConstructorMacine(num, Acceleration, Decelerate, RotateSpeed, BulletNumofFiring, MaxSpeed);
+        ConstructorMacine(num, Attack, Acceleration, Decelerate, DelayTimeofFiring, RotateSpeed, BulletNumofFiring, MaxSpeed);
     }
 
     // Update is called once per frame
@@ -57,7 +56,7 @@ public class Base_Tank : Macine
 
 
     }
-    public void Accelerate(Rigidbody Rb)//å‰é€²ã¸ã®åŠ é€Ÿ
+    public void Accelerate(Rigidbody Rb)//‘Oi‚Ö‚Ì‰Á‘¬
     {
         if (SpeedComparison())
         {
@@ -68,7 +67,7 @@ public class Base_Tank : Macine
         }
 
     }
-    public void Rotate()//å›è»¢
+    public void Rotate()//‰ñ“]
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -83,12 +82,12 @@ public class Base_Tank : Macine
         }
     }
     
-    public void Measurement(Rigidbody Rb)//ç¾åœ¨ã®ã‚¹ãƒ”ãƒ¼ãƒ‰ã‚’ç®—å‡ºã™ã‚‹
+    public void Measurement(Rigidbody Rb)//Œ»İ‚ÌƒXƒs[ƒh‚ğZo‚·‚é
     {
         SetSpeed(Rb.velocity.sqrMagnitude);
     }
     /// <summary>
-    /// éŠƒã®ç™ºå°„
+    /// e‚Ì”­Ë
     /// </summary>
     public void Fire()
     {
@@ -101,7 +100,7 @@ public class Base_Tank : Macine
     private float MinRotate=0.95f;
     public float x;
     /// <summary>
-    /// æˆ¦è»Šã®ä¸Šã«ã‚ã‚‹éŠƒã‚’ä¸Šä¸‹ã«å‹•ã‹ã™
+    /// íÔ‚Ìã‚É‚ ‚ée‚ğã‰º‚É“®‚©‚·
     /// </summary>
     /// <param name="n"></param>
     public void MoobGun()

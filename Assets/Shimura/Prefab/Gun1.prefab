@@ -141,5 +141,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet: {fileID: 1178111096350498904, guid: e929e787fb55ef5428ee81e0a553523f, type: 3}
   BulletSpeed: 1000
-  Attack: 10
-  DelayTimeofFiring: 0.5

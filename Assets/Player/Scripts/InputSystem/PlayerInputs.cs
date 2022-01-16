@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class PlayerInputs : MonoBehaviour
 {
-    [SerializeField,Tooltip("キー設定")]
+    [SerializeField]
     private InputKeyConfig keyConfig;
-
-
     /// <summary>
     /// 上下左右入力をVec2で取得
     /// </summary>
@@ -23,46 +21,19 @@ public class PlayerInputs : MonoBehaviour
             return vec;
         }
     }
-    /// <summary>
-    /// 攻撃
-    /// </summary>
     public bool fire { private set; get; }
-    /// <summary>
-    /// 加速
-    /// </summary>
     public bool accel { private set; get; }
-    /// <summary>
-    /// 減速
-    /// </summary>
     public bool decel { private set; get; }
-    /// <summary>
-    /// 上方向入力
-    /// </summary>
     public bool up { get; private set; }
-    /// <summary>
-    /// 下方向入力
-    /// </summary>
     public bool down { get; private set; }
-    /// <summary>
-    /// 右方向入力
-    /// </summary>
     public bool right { get; private set; }
-    /// <summary>
-    /// 左方向入力
-    /// </summary>
     public bool left { get; private set; }
-    /// <summary>
-    /// マップ表示入力
-    /// </summary>
     public bool map { get; private set; }
-    /// <summary>
-    /// 部隊編成表示入力
-    /// </summary>
     public bool squad { get; private set; }
 
     void Start()
     {
-        if (keyConfig == null) Debug.LogError("InputKeyConfigを設定してください");
+        if (keyConfig == null) Debug.LogError("InputKeyManagerを設定してください");
     }
 
     void Update()

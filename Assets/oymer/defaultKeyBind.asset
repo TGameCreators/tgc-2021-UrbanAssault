@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f09f4fe0690a14391e3dac5effea76, type: 3}
   m_Name: defaultKeyBind
   m_EditorClassIdentifier: 
-  Up: 273
-  Down: 274
-  Left: 276
-  Right: 275
-  Fire: 32
-  Accel: 97
-  Decel: 122
-  Map: 109
-  Squad: 115
+  up: 273
+  down: 274
+  left: 276
+  right: 275
+  fire: 32
+  accel: 97
+  decel: 122
