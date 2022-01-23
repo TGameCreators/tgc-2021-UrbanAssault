@@ -421,4 +421,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38db0bc627771ed48a82a1df40597195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyConfig: {fileID: 11400000, guid: aeeea6638f092674bafd1f30db71f560, type: 2}
+  keyManager: {fileID: 11400000, guid: aeeea6638f092674bafd1f30db71f560, type: 2}

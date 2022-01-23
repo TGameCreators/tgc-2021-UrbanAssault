@@ -5,15 +5,15 @@
 [CreateAssetMenu(fileName = "defaultKeyConfig", menuName = "ScriptableObjects/InputKeyConfig", order = 1)]
 public class InputKeyConfig : ScriptableObject
 {
-    [SerializeField, Tooltip("上方向")] private KeyCode Up = KeyCode.UpArrow;
-    [SerializeField, Tooltip("下方向")] private KeyCode Down = KeyCode.DownArrow;
-    [SerializeField, Tooltip("左方向")] private KeyCode Left = KeyCode.LeftArrow;
-    [SerializeField, Tooltip("右方向")] private KeyCode Right = KeyCode.RightArrow;
-    [SerializeField, Tooltip("攻撃ボタン")] private KeyCode Fire = KeyCode.Space;
-    [SerializeField, Tooltip("加速ボタン")] private KeyCode Accel = KeyCode.A;
-    [SerializeField, Tooltip("減速ボタン")] private KeyCode Decel = KeyCode.Z;
-    [SerializeField, Tooltip("マップ表示")] private KeyCode Map = KeyCode.M;
-    [SerializeField, Tooltip("部隊編成表示")] private KeyCode Squad = KeyCode.S;
+    [SerializeField] private KeyCode Up = KeyCode.UpArrow;
+    [SerializeField] private KeyCode Down = KeyCode.DownArrow;
+    [SerializeField] private KeyCode Left = KeyCode.LeftArrow;
+    [SerializeField] private KeyCode Right = KeyCode.RightArrow;
+    [SerializeField] private KeyCode Fire = KeyCode.Space;
+    [SerializeField] private KeyCode Accel = KeyCode.A;
+    [SerializeField] private KeyCode Decel = KeyCode.Z;
+    [SerializeField] private KeyCode Map = KeyCode.M;
+    [SerializeField] private KeyCode Squad = KeyCode.S;
     public KeyCode up => Up;
     public KeyCode down => Down;
     public KeyCode left => Left;

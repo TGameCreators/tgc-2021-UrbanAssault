@@ -18,7 +18,6 @@ public class Gun : MonoBehaviour
     float DelayTimeofFiring;//銃の連射速度
     float Timer;
 
-    //Macineについている銃の設定をGunスクリプトに入れたい
 
 
     void Start()
@@ -26,18 +25,14 @@ public class Gun : MonoBehaviour
         GunWeapon = this.gameObject;
         MuzzlePos = transform.Find("Muzzle").GetComponent<Transform>();
         Fighter = transform.parent.gameObject.GetComponent<Fighter>();
-        Timer =DelayTimeofFiring;
+        Attack = Fighter.GetAttack();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Timer += Time.deltaTime;
-        if (Input.GetMouseButtonDown(0) && Timer > DelayTimeofFiring)
-        {
-            Shoot();
-            Timer = 0;
-        }
+        if (Input.GetMouseButtonDown(0)) Shoot();
+        Bullet = BulletManager.UsingBullet;
     }
 
 
