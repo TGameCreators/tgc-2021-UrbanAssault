@@ -27,7 +27,7 @@ public class Base_Tank : Macine
 
         //èeÇÃíTçı
         Gun= transform.Find("GUN").gameObject;
-        
+        Gun.transform.Rotate(new Vector3(-GetRotateSpeed()*2, 0, 0));
 
     }
 
@@ -62,6 +62,7 @@ public class Base_Tank : Macine
         {
             //Debug.Log("Moob");
             Rb.AddForce(transform.forward * GetAcceleration() * Input.GetAxis("Horizontal"));
+            Rb.AddForce(transform.forward * GetAcceleration() * Input.GetAxis("Vertical") *(-1));
 
 
         }
@@ -96,7 +97,7 @@ public class Base_Tank : Macine
         bullet.GetComponent<Bullet_Tank>().Fire(Muzzle);
         
     }
-    private float MaxRotate=1;
+    private float MaxRotate=1.00f;
     private float MinRotate=0.95f;
     public float x;
     /// <summary>
@@ -106,17 +107,32 @@ public class Base_Tank : Macine
     public void MoobGun()
     {
         x = Gun.transform.rotation.x;
-        if (Input.GetKey(KeyCode.Q)&& Gun.transform.rotation.x <= MaxRotate + GetRotateSpeed() && Gun.transform.rotation.x > MinRotate)
+       
+        if(x <= MaxRotate)
         {
+            if(x >= MinRotate)
+            {
+                if (Input.GetKey(KeyCode.Q))
+                {
+                    Gun.transform.Rotate(new Vector3(-GetRotateSpeed(), 0, 0));
+                    if(Gun.transform.rotation.x <= MinRotate)
+                    {
+                        Gun.transform.Rotate(new Vector3(GetRotateSpeed(), 0, 0));
+                    }
 
-            Gun.transform.Rotate(new Vector3(-GetRotateSpeed(), 0, 0));
-        }
-        else if (Input.GetKey(KeyCode.E) && Gun.transform.rotation.x >= MinRotate - GetRotateSpeed() && Gun.transform.rotation.x < MaxRotate)
-        {
+                }
+                else if (Input.GetKey(KeyCode.E))
+                {
+                    Gun.transform.Rotate(new Vector3(GetRotateSpeed(), 0, 0));
+                    if (Gun.transform.rotation.x >= MaxRotate)
+                    {
+                        Gun.transform.Rotate(new Vector3(-GetRotateSpeed(), 0, 0));
+                    }
 
-            Gun.transform.Rotate(new Vector3(GetRotateSpeed(), 0, 0));
-
+                }
+            }
         }
 
     }
+    
 }
