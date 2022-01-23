@@ -10,15 +10,8 @@ public class Gun : MonoBehaviour
     GameObject FireBullet;//発射した弾
     Rigidbody BulletRig;
     Transform MuzzlePos;
-    [Tooltip("弾のスピード")]
     public float BulletSpeed;
-    [Tooltip("弾の攻撃力")]
-    public float Attack;//弾の攻撃力
-    [SerializeField, Tooltip("連射性能（何秒おきに弾を撃つか）")]
-    float DelayTimeofFiring;//銃の連射速度
-    float Timer;
-
-    //Macineについている銃の設定をGunスクリプトに入れたい
+    float Attack;//弾の攻撃力（親オブジェクトから取得）
 
 
     void Start()
@@ -26,18 +19,14 @@ public class Gun : MonoBehaviour
         GunWeapon = this.gameObject;
         MuzzlePos = transform.Find("Muzzle").GetComponent<Transform>();
         Fighter = transform.parent.gameObject.GetComponent<Fighter>();
-        Timer =DelayTimeofFiring;
+        Attack = Fighter.GetAttack();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Timer += Time.deltaTime;
-        if (Input.GetMouseButtonDown(0) && Timer > DelayTimeofFiring)
-        {
-            Shoot();
-            Timer = 0;
-        }
+        if (Input.GetMouseButtonDown(0)) Shoot();
+        Bullet = BulletManager.UsingBullet;
     }
 
 
