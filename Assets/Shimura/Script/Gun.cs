@@ -1,17 +1,23 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
     GameObject GunWeapon;
-    Fighter Fighter;//‚±‚Ìe‚ğ“‹Ú‚µ‚Ä‚¢‚éeƒIƒuƒWƒFƒNƒg
-    public GameObject Bullet;//e‚ÉƒZƒbƒg‚µ‚½’e
-    GameObject FireBullet;//”­Ë‚µ‚½’e
+    Fighter Fighter;//ã“ã®éŠƒã‚’æ­è¼‰ã—ã¦ã„ã‚‹è¦ªã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+    public GameObject Bullet;//éŠƒã«ã‚»ãƒƒãƒˆã—ãŸå¼¾
+    GameObject FireBullet;//ç™ºå°„ã—ãŸå¼¾
     Rigidbody BulletRig;
     Transform MuzzlePos;
+    [Tooltip("å¼¾ã®ã‚¹ãƒ”ãƒ¼ãƒ‰")]
     public float BulletSpeed;
-    float Attack;//’e‚ÌUŒ‚—ÍieƒIƒuƒWƒFƒNƒg‚©‚çæ“¾j
+    [Tooltip("å¼¾ã®æ”»æ’ƒåŠ›")]
+    public float Attack;//å¼¾ã®æ”»æ’ƒåŠ›
+    [SerializeField, Tooltip("é€£å°„æ€§èƒ½ï¼ˆä½•ç§’ãŠãã«å¼¾ã‚’æ’ƒã¤ã‹ï¼‰")]
+    float DelayTimeofFiring;//éŠƒã®é€£å°„é€Ÿåº¦
+    float Timer;
+
 
 
     void Start()
@@ -30,15 +36,15 @@ public class Gun : MonoBehaviour
     }
 
 
-    //’e‚Ì¶¬‚Æe‚Ì³–Ê•ûŒü‚É—Í‚ğ‰Á‚¦‚é
+    //å¼¾ã®ç”Ÿæˆã¨éŠƒã®æ­£é¢æ–¹å‘ã«åŠ›ã‚’åŠ ãˆã‚‹
     void Shoot()
     {
-        //’e¶¬
+        //å¼¾ç”Ÿæˆ
         FireBullet=Instantiate(Bullet, MuzzlePos.transform);
-        //’e‚ÌUŒ‚—Í‚ğİ’è
+        //å¼¾ã®æ”»æ’ƒåŠ›ã‚’è¨­å®š
         Bullet b = FireBullet.GetComponent<Bullet>();
         b.SetAttack(Attack);
-        //’e‚ğ‘O•û‚É”ò‚Î‚·
+        //å¼¾ã‚’å‰æ–¹ã«é£›ã°ã™
         BulletRig = FireBullet.GetComponent<Rigidbody>();
         BulletRig.AddForce(GunWeapon.transform.forward * BulletSpeed);  
         
