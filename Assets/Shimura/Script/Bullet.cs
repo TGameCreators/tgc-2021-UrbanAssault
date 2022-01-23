@@ -1,5 +1,5 @@
-/*
- * ’e‚Ì”ò‚Ñ•û‚ÍŒp³‚µ‚½ƒNƒ‰ƒX‚ªŒˆ‚ß‚é 
+ï»¿/*
+ * å¼¾ã®é£›ã³æ–¹ã¯ç¶™æ‰¿ã—ãŸã‚¯ãƒ©ã‚¹ãŒæ±ºã‚ã‚‹ 
  */
 
 
@@ -9,13 +9,13 @@ using UnityEngine;
 
 public abstract class Bullet : MonoBehaviour
 {
-    [Tooltip("’e‚Ìí—Ş")]
+    [Tooltip("å¼¾ã®ç¨®é¡")]
     protected Rigidbody BulletRig;
     float Timer;
-    [SerializeField,Tooltip("’e‚ÌÁ–ÅŠÔ")] 
+    [SerializeField,Tooltip("å¼¾ã®æ¶ˆæ»…æ™‚é–“")] 
     float DeleteTime;
-    [Tooltip("’e‚ÌUŒ‚—ÍiGunƒXƒNƒŠƒvƒg‚©‚çæ“¾j")] 
-    float Attack;//GunƒXƒNƒŠƒvƒg¨BulletƒXƒNƒŠƒvƒg‚Åæ“¾j
+    [Tooltip("å¼¾ã®æ”»æ’ƒåŠ›ï¼ˆGunã‚¹ã‚¯ãƒªãƒ—ãƒˆã‹ã‚‰å–å¾—ï¼‰")] 
+    float Attack;//Gunã‚¹ã‚¯ãƒªãƒ—ãƒˆâ†’Bulletã‚¹ã‚¯ãƒªãƒ—ãƒˆã§å–å¾—ï¼‰
 
 
 
@@ -25,7 +25,7 @@ public abstract class Bullet : MonoBehaviour
         Timer = 0;
         transform.parent = null;
         BulletRig = GetComponent<Rigidbody>();
-        Debug.Log("’eUŒ‚—ÍF"+Attack);
+        Debug.Log("å¼¾æ”»æ’ƒåŠ›ï¼š"+Attack);
     }
 
     
@@ -38,7 +38,7 @@ public abstract class Bullet : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        //“–‚½‚è”»’è‚Ìˆ—    
+        //å½“ãŸã‚Šåˆ¤å®šã®å‡¦ç†    
     }
 
     public void SetAttack(float Attack)

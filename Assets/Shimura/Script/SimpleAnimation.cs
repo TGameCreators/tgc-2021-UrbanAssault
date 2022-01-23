@@ -1,11 +1,11 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SimpleAnimation : MonoBehaviour
 {
-    public float interval; // ƒZƒOƒƒ“ƒg‚ÌŠÔŠÔŠu
-    public GameObject[] waypoints; // Œo—R‚·‚éƒIƒuƒWƒFƒNƒg
+    public float interval; // ã‚»ã‚°ãƒ¡ãƒ³ãƒˆã®æ™‚é–“é–“éš”
+    public GameObject[] waypoints; // çµŒç”±ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     private float startTime;
     void Start()
     {
@@ -14,10 +14,10 @@ public class SimpleAnimation : MonoBehaviour
     void Update()
     {
         float s = (Time.time - startTime) / interval;
-        int seg = (int)s % (waypoints.Length - 1); // •âŠÔƒZƒOƒƒ“ƒg‚ğ‹‚ß‚é
-        float a = s - Mathf.Floor(s); // ƒZƒOƒƒ“ƒg“à‚Å‚Ìis—¦
+        int seg = (int)s % (waypoints.Length - 1); // è£œé–“ã‚»ã‚°ãƒ¡ãƒ³ãƒˆã‚’æ±‚ã‚ã‚‹
+        float a = s - Mathf.Floor(s); // ã‚»ã‚°ãƒ¡ãƒ³ãƒˆå†…ã§ã®é€²è¡Œç‡
         Vector3 pos1 = waypoints[seg].transform.position;
         Vector3 pos2 = waypoints[seg + 1].transform.position;
-        transform.position = Vector3.Lerp(pos1, pos2, a); // is—¦‚ÅüŒ`•âŠÔ
+        transform.position = Vector3.Lerp(pos1, pos2, a); // é€²è¡Œç‡ã§ç·šå½¢è£œé–“
     }
 }

@@ -1,19 +1,19 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //using DG.Tweening;
 
 public class ZigzagBullet : Bullet
 {
-    //•K—v‚É‚È‚Á‚½‚çDOTweenƒCƒ“ƒ|[ƒg‚µ‚Ä‚­‚¾‚³‚¢
+    //å¿…è¦ã«ãªã£ãŸã‚‰DOTweenã‚¤ãƒ³ãƒãƒ¼ãƒˆã—ã¦ãã ã•ã„
     /*
     [SerializeField]
     GameObject BulletBody;
 
-    [SerializeField,Tooltip("‰•œŠÔ"),Range(0,1.0f)]
+    [SerializeField,Tooltip("å¾€å¾©æ™‚é–“"),Range(0,1.0f)]
     float RoundTripTime;
 
-    [SerializeField, Tooltip("ƒWƒOƒUƒO“x‡‚¢"), Range(0, 10)]
+    [SerializeField, Tooltip("ã‚¸ã‚°ã‚¶ã‚°åº¦åˆã„"), Range(0, 10)]
     public float Zigzag;
     
     protected override void Start()

@@ -1,12 +1,12 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GunManager : MonoBehaviour
 {
     [SerializeField]
-    List<GameObject> OwnedGun = new List<GameObject>();//e‚ğŠi”[
-    int UsingGun;//g—p’†‚Ìe‚ÌOwnedGun‚Å‚Ì”Ô†
+    List<GameObject> OwnedGun = new List<GameObject>();//éŠƒã‚’æ ¼ç´
+    int UsingGun;//ä½¿ç”¨ä¸­ã®éŠƒã®OwnedGunã§ã®ç•ªå·
 
     void Start()
     {
