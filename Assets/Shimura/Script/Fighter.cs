@@ -1,18 +1,18 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Fighter : Macine
 {
-    [SerializeField] float wingsArea;     //—ƒ‚Ì–ÊÏ
-    [SerializeField] float airDensity;    //‹ó‹C–§“x
-    [SerializeField] float speed;         //‘¬“x
-    [SerializeField] float cl;            //—g—ÍŒW”
+    [SerializeField] float wingsArea;     //ç¿¼ã®é¢ç©
+    [SerializeField] float airDensity;    //ç©ºæ°—å¯†åº¦
+    [SerializeField] float speed;         //é€Ÿåº¦
+    [SerializeField] float cl;            //æšåŠ›ä¿‚æ•°
 
     [SerializeField] protected Rigidbody Rb;
 
-    float XZRotate;//í“¬‹@‚ğ¶‰E‚Éù‰ñ‚³‚¹‚é
-    float XYRotate;//í“¬‹@‚ğã‰º‚ÉŒü‚¯‚é
+    float XZRotate;//æˆ¦é—˜æ©Ÿã‚’å·¦å³ã«æ—‹å›ã•ã›ã‚‹
+    float XYRotate;//æˆ¦é—˜æ©Ÿã‚’ä¸Šä¸‹ã«å‘ã‘ã‚‹
 
 
     // Start is called before the first frame update
@@ -29,8 +29,8 @@ public class Fighter : Macine
 
     private void FixedUpdate()
     {
-        Accelerate();//³–Ê‚Éi‚Ş
-        TurnAround();//WASD‚Åi‚Ş•ûŒü‚ğ•Ï‚¦‚é
+        Accelerate();//æ­£é¢ã«é€²ã‚€
+        TurnAround();//WASDã§é€²ã‚€æ–¹å‘ã‚’å¤‰ãˆã‚‹
     }
 
     public Fighter(int num, float Attack, float Acceleration)
@@ -42,30 +42,30 @@ public class Fighter : Macine
     {
         var forces = Vector3.zero;
         forces = speed * transform.forward;
-        //—g—Í‚Ì•ûŒü
+        //æšåŠ›ã®æ–¹å‘
         Vector3 liftDirection = Vector3.Cross(Rb.velocity, transform.forward).normalized;
         var liftPower = lift(airDensity, wingsArea, speed, cl) / 1000 * Time.deltaTime;
         forces += liftPower * liftDirection;
-        //MaxSpeed‚æ‚è‚à‘¬“x‚ª¬‚³‚¯‚ê‚Î‰Á‘¬i“™‘¬‚ğˆÛ‚µ‚½‚¢j
+        //MaxSpeedã‚ˆã‚Šã‚‚é€Ÿåº¦ãŒå°ã•ã‘ã‚Œã°åŠ é€Ÿï¼ˆç­‰é€Ÿã‚’ç¶­æŒã—ãŸã„ï¼‰
         if(Rb.velocity.magnitude<10)Rb.AddForce(forces);
     }
 
-    //—g—Í‚ğæ“¾
+    //æšåŠ›ã‚’å–å¾—
     float lift(float air, float wing, float spd, float cl)
     {
-        //—g—Í  =‹ó‹C–§“x*—ƒ‚Ì–ÊÏ*‘¬“x‚Ì“ñæ*—g—ÍŒW”/ 2
+        //æšåŠ›  =ç©ºæ°—å¯†åº¦*ç¿¼ã®é¢ç©*é€Ÿåº¦ã®äºŒä¹—*æšåŠ›ä¿‚æ•°/ 2
         float l =   air  *   wing *  spd*spd *   cl   / 2;
         return l;
     }
 
-    //Ql@https://teratail.com/questions/331607
+    //å‚è€ƒã€€https://teratail.com/questions/331607
 
     public void TurnAround()
     {
-        if (Input.GetKey(KeyCode.W) && XYRotate > -30) XYRotate -= 0.5f;//‹@ñ‚ğã‚°‚é
-        if (Input.GetKey(KeyCode.S) && XYRotate < 30) XYRotate += 0.5f;//‹@ñ‚ğ‰º‚°‚é
-        if (Input.GetKey(KeyCode.D)) XZRotate += 0.5f;//‰Eù‰ñ
-        if (Input.GetKey(KeyCode.A)) XZRotate -= 0.5f;//¶ù‰ñ
+        if (Input.GetKey(KeyCode.W) && XYRotate > -30) XYRotate -= 0.5f;//æ©Ÿé¦–ã‚’ä¸Šã’ã‚‹
+        if (Input.GetKey(KeyCode.S) && XYRotate < 30) XYRotate += 0.5f;//æ©Ÿé¦–ã‚’ä¸‹ã’ã‚‹
+        if (Input.GetKey(KeyCode.D)) XZRotate += 0.5f;//å³æ—‹å›
+        if (Input.GetKey(KeyCode.A)) XZRotate -= 0.5f;//å·¦æ—‹å›
         transform.rotation = Quaternion.Euler(XYRotate, XZRotate, 0);
     }
 }

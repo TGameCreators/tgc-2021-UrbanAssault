@@ -1,11 +1,11 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //using DG.Tweening;
 
 public class Umbrella : MonoBehaviour
 {
-    //•K—v‚É‚È‚Á‚½‚çDOTweenƒCƒ“ƒ|[ƒg‚µ‚Ä‚­‚¾‚³‚¢
+    //å¿…è¦ã«ãªã£ãŸã‚‰DOTweenã‚¤ãƒ³ãƒãƒ¼ãƒˆã—ã¦ãã ã•ã„
 /*
 float timer;
 GameObject CollisionDetection;

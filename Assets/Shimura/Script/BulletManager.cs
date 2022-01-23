@@ -1,12 +1,12 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletManager : MonoBehaviour
 {
     public List<GameObject> OwnedBullet = new List<GameObject>();
-    public static GameObject UsingBullet;//g—p’†‚Ì’e
-    static float BulletNumber = 0;//OwnedBulletƒŠƒXƒg‚Ì”z—ñ”Ô†‚Æ‚µ‚Äg—p
+    public static GameObject UsingBullet;//ä½¿ç”¨ä¸­ã®å¼¾
+    static float BulletNumber = 0;//OwnedBulletãƒªã‚¹ãƒˆã®é…åˆ—ç•ªå·ã¨ã—ã¦ä½¿ç”¨
     // Start is called before the first frame update
     void Start()
     {
