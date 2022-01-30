@@ -14,7 +14,7 @@ public class Bullet_Tank : Bullet
     protected override void Update()
     {
         base.Update();
-        Rb.AddForce(ParentTank.transform.forward * Speed);
+        Rb.AddForce(ParentTank.transform.forward * 1);
     }
 
 
