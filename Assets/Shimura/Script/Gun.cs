@@ -5,7 +5,6 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     GameObject GunWeapon;
-    Fighter Fighter;//この銃を搭載している親オブジェクト
     public GameObject Bullet;//銃にセットした弾
     GameObject FireBullet;//発射した弾
     Rigidbody BulletRig;
@@ -22,17 +21,20 @@ public class Gun : MonoBehaviour
 
     void Start()
     {
+        Timer = 0;
         GunWeapon = this.gameObject;
         MuzzlePos = transform.Find("Muzzle").GetComponent<Transform>();
-        Fighter = transform.parent.gameObject.GetComponent<Fighter>();
-        Attack = Fighter.GetAttack();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) Shoot();
-        Bullet = BulletManager.UsingBullet;
+        Timer += Time.deltaTime;
+        if (Input.GetMouseButtonDown(0) && Timer > DelayTimeofFiring)
+        {
+            Shoot();
+            Timer = 0;
+        }
     }
 
 
@@ -47,7 +49,6 @@ public class Gun : MonoBehaviour
         //弾を前方に飛ばす
         BulletRig = FireBullet.GetComponent<Rigidbody>();
         BulletRig.AddForce(GunWeapon.transform.forward * BulletSpeed);  
-        
     }
 
 }
