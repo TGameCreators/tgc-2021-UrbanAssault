@@ -38,7 +38,23 @@ public abstract class Bullet : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        //当たり判定の処理    
+        //当たり判定の処理
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("命中");
+            Destroy(gameObject);
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //当たり判定の処理
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("命中");
+            Destroy(gameObject);
+        }
     }
 
     public void SetAttack(float Attack)
