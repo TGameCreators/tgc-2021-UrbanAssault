@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1178111096350498907}
   - component: {fileID: 7105162500721523625}
   m_Layer: 0
-  m_Name: Bullet1
+  m_Name: NormalBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,5 +125,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f1ae103bfc98d4a9d324f5d46e3473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeleteTime: 2
-  Speed: 1000
+  DeleteTime: 5
+  TrackingPerformance: 0.1

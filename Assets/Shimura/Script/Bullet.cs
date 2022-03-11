@@ -16,6 +16,8 @@ public abstract class Bullet : MonoBehaviour
     float DeleteTime;
     [Tooltip("弾の攻撃力（Gunスクリプトから取得）")] 
     float Attack;//Gunスクリプト→Bulletスクリプトで取得）
+    [SerializeField,Tooltip("追尾性能")]
+    float TrackingPerformance;
 
 
 
@@ -33,6 +35,14 @@ public abstract class Bullet : MonoBehaviour
     {
         Timer += Time.deltaTime;
         if (Timer >= DeleteTime) Destroy(this.gameObject);
+
+        //追尾機能
+        if (LookOn.TargetPos != null)
+        {
+            Vector3 DirectionCorrection = Vector3.MoveTowards(transform.position, LookOn.TargetPos.transform.position, TrackingPerformance * Timer);
+            //BulletRig.AddForce(DirectionCorrection,ForceMode.Impulse);
+            transform.position = DirectionCorrection;
+        }
     }
 
 

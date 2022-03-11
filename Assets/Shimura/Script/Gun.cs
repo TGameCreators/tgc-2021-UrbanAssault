@@ -16,6 +16,7 @@ public class Gun : MonoBehaviour
     [SerializeField, Tooltip("連射性能（何秒おきに弾を撃つか）")]
     float DelayTimeofFiring;//銃の連射速度
     float Timer;
+    bool ShootRock;//Trueの場合はShoot関数で射撃できる
 
 
 
@@ -24,31 +25,39 @@ public class Gun : MonoBehaviour
         Timer = 0;
         GunWeapon = this.gameObject;
         MuzzlePos = transform.Find("Muzzle").GetComponent<Transform>();
+        ShootRock = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Timer += Time.deltaTime;
-        if (Input.GetMouseButtonDown(0) && Timer > DelayTimeofFiring)
+        //弾を発射して次に撃てるまでの時間を測る
+        if (!ShootRock)
         {
-            Shoot();
-            Timer = 0;
+            Timer += Time.deltaTime;
+            if (Timer > DelayTimeofFiring)
+            {
+                ShootRock = true;
+                Timer = 0;
+            }
         }
     }
 
 
     //弾の生成と銃の正面方向に力を加える
-    void Shoot()
+    public void Shoot()
     {
-        //弾生成
-        FireBullet=Instantiate(Bullet, MuzzlePos.transform);
-        //弾の攻撃力を設定
-        Bullet b = FireBullet.GetComponent<Bullet>();
-        b.SetAttack(Attack);
-        //弾を前方に飛ばす
-        BulletRig = FireBullet.GetComponent<Rigidbody>();
-        BulletRig.AddForce(GunWeapon.transform.forward * BulletSpeed);  
+        if (ShootRock)
+        {
+            //弾生成
+            FireBullet = Instantiate(Bullet, MuzzlePos.transform);
+            //弾の攻撃力を設定
+            Bullet b = FireBullet.GetComponent<Bullet>();
+            b.SetAttack(Attack);
+            //弾を前方に飛ばす
+            BulletRig = FireBullet.GetComponent<Rigidbody>();
+            BulletRig.AddForce(GunWeapon.transform.forward * BulletSpeed);
+            ShootRock = false;
+        }
     }
-
 }

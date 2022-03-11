@@ -1,27 +1,28 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LookOn : MonoBehaviour
 {
-    [SerializeField, Tooltip("ƒƒCƒ“‚ÌƒJƒƒ‰‚ğƒZƒbƒg\nRay‚ÌŠJn’n“_")]
-    Camera camera;//Ray‚ÌŠJn’n“_iƒJƒƒ‰‚Íí“¬‹@‚ğ’Ç]‚µ‚Ä‚¢‚éj
-    [SerializeField, Tooltip("player‚ğİ’è")]
+    [SerializeField, Tooltip("ãƒ¡ã‚¤ãƒ³ã®ã‚«ãƒ¡ãƒ©ã‚’ã‚»ãƒƒãƒˆ\nRayã®é–‹å§‹åœ°ç‚¹")]
+    Camera camera;//Rayã®é–‹å§‹åœ°ç‚¹ï¼ˆã‚«ãƒ¡ãƒ©ã¯æˆ¦é—˜æ©Ÿã‚’è¿½å¾“ã—ã¦ã„ã‚‹ï¼‰
+    [SerializeField, Tooltip("playerã‚’è¨­å®š")]
     GameObject Player;
-    [SerializeField, Tooltip("Canvas‚ÌRectTransform")]
+    [SerializeField, Tooltip("Canvasã®RectTransform")]
     RectTransform CanvasRect;
-    [SerializeField, Tooltip("Æ€‚ÌRectTransform")]
+    [SerializeField, Tooltip("ç…§æº–ã®RectTransform")]
     RectTransform RT;
-    [SerializeField,Tooltip("•W€‚Ì‰æ‘œ:[0]\nƒƒbƒNƒIƒ“‚Ì‰æ‘œ:[1]")]
+    [SerializeField,Tooltip("æ¨™æº–æ™‚ã®ç”»åƒ:[0]\nãƒ­ãƒƒã‚¯ã‚ªãƒ³æ™‚ã®ç”»åƒ:[1]")]
     Sprite[] Sprite;
     Image UsingImage;
-    [SerializeField,Tooltip("‚¿‚á‚ñ‚ÆŠi”[‚³‚ê‚Ä‚¢‚é‚©Šm”F—p" +
-        "\nRay‚ª“–‚½‚Á‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg‚ªŠi”[‚³‚ê‚Ä‚¢‚ê‚ÎOK" +
-        "\nRay‚ª“–‚½‚Á‚Ä‚¢‚È‚¢‚Æ‚«‚Ínull‚É‚È‚é")]
-    GameObject TargetPos;
-    float Distance;//ƒvƒŒƒCƒ„[‚Æ“Giƒ^[ƒQƒbƒg’†j‚Æ‚Ì‹——£
-    Vector3 TargetPoint;//Æ€‚ÌˆÊ’u
+    [Tooltip("ã¡ã‚ƒã‚“ã¨æ ¼ç´ã•ã‚Œã¦ã„ã‚‹ã‹ç¢ºèªç”¨" +
+        "\nRayãŒå½“ãŸã£ã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒæ ¼ç´ã•ã‚Œã¦ã„ã‚Œã°OK" +
+        "\nRayãŒå½“ãŸã£ã¦ã„ãªã„ã¨ãã¯nullã«ãªã‚‹"+
+        "\nå¼¾ã«ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®æƒ…å ±ã‚’æ¸¡ã™ãŸã‚publicã«ã—ã¦ã‚‹")]
+    public static GameObject TargetPos;
+    float Distance;//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã¨æ•µï¼ˆã‚¿ãƒ¼ã‚²ãƒƒãƒˆä¸­ï¼‰ã¨ã®è·é›¢
+    Vector3 TargetPoint;//ç…§æº–ã®ä½ç½®
     RaycastHit hit;
 
     void Start()
@@ -49,9 +50,9 @@ public class LookOn : MonoBehaviour
     {
         //Debug.DrawRay(Player.transform.position, Vector3.forward, Color.blue);
         if (Physics.BoxCast(Player.transform.position, new Vector3(40f, 20f, 1f),
-            Vector3.forward, out hit, Quaternion.identity, 100f, LayerMask.GetMask("Enemy")))
+            Player.transform.forward, out hit, Quaternion.identity, 100f, LayerMask.GetMask("Enemy")))
         {
-            //Ray‚ªƒqƒbƒg‚µ‚½‚Æ‚«‚Ìˆ—
+            //RayãŒãƒ’ãƒƒãƒˆã—ãŸã¨ãã®å‡¦ç†
             if (hit.collider.CompareTag("Enemy"))
             {
                 LockonStart();
@@ -67,7 +68,7 @@ public class LookOn : MonoBehaviour
         }
     }
 
-        //Ray‚Å“G‚ğ•â‘«‚µ‚½‚çŒÄ‚Ño‚·
+        //Rayã§æ•µã‚’è£œè¶³ã—ãŸã‚‰å‘¼ã³å‡ºã™
         public void LockonStart()
     {
         Debug.Log("hit");
@@ -76,7 +77,7 @@ public class LookOn : MonoBehaviour
         UsingImage.sprite = Sprite[1];
     }
 
-    //Ray‚Å“G‚ğŒ©¸‚Á‚½‚çŒÄ‚Ño‚·
+    //Rayã§æ•µã‚’è¦‹å¤±ã£ãŸã‚‰å‘¼ã³å‡ºã™
     public void LockonEnd()
     {
         Debug.Log("no hit");
@@ -87,7 +88,7 @@ public class LookOn : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        //@Cube‚ÌƒŒƒC‚ğ‹^—“I‚É‹Šo‰»
+        //ã€€Cubeã®ãƒ¬ã‚¤ã‚’ç–‘ä¼¼çš„ã«è¦–è¦šåŒ–
         Gizmos.color = Color.green;
         //Gizmos.DrawWireCube(Player.transform.position + transform.forward * Distance, new Vector3(40f, 20f, 1f));
         Gizmos.DrawWireCube(hit.point, new Vector3(40f, 20f, 1f));
@@ -98,14 +99,14 @@ public class LookOn : MonoBehaviour
 
 
     /*
-    [SerializeField,Tooltip("ƒƒCƒ“‚ÌƒJƒƒ‰‚ğƒZƒbƒg\nRay‚ÌŠJn’n“_")]
-    Camera camera;//Ray‚ÌŠJn’n“_iƒJƒƒ‰‚Íí“¬‹@‚ğ’Ç]‚µ‚Ä‚¢‚éj
-    [SerializeField, Tooltip("ƒƒbƒNƒIƒ“‚Éƒ^[ƒQƒbƒgUI‚ğ•ÏX")]
+    [SerializeField,Tooltip("ãƒ¡ã‚¤ãƒ³ã®ã‚«ãƒ¡ãƒ©ã‚’ã‚»ãƒƒãƒˆ\nRayã®é–‹å§‹åœ°ç‚¹")]
+    Camera camera;//Rayã®é–‹å§‹åœ°ç‚¹ï¼ˆã‚«ãƒ¡ãƒ©ã¯æˆ¦é—˜æ©Ÿã‚’è¿½å¾“ã—ã¦ã„ã‚‹ï¼‰
+    [SerializeField, Tooltip("ãƒ­ãƒƒã‚¯ã‚ªãƒ³æ™‚ã«ã‚¿ãƒ¼ã‚²ãƒƒãƒˆUIã‚’å¤‰æ›´")]
     Sprite[] Sprite;
     Image Image;
-    [SerializeField, Tooltip("Æ€‚ÌUI‚ğİ’è")]
+    [SerializeField, Tooltip("ç…§æº–ã®UIã‚’è¨­å®š")]
     GameObject AimUI;
-    [SerializeField, Tooltip("player‚ğİ’è")]
+    [SerializeField, Tooltip("playerã‚’è¨­å®š")]
     GameObject Player;
 
     void Start()
@@ -127,16 +128,16 @@ public class LookOn : MonoBehaviour
         Debug.DrawRay(Player.transform.position, Vector3.forward, Color.blue);
         if(Physics.Raycast(Player.transform.position, Vector3.forward,out hit))
         {
-            //Ray‚ªƒqƒbƒg‚µ‚½‚Æ‚«‚Ìˆ—
+            //RayãŒãƒ’ãƒƒãƒˆã—ãŸã¨ãã®å‡¦ç†
             if (hit.collider.CompareTag("Enemy"))
             {
-                Image.sprite = Sprite[1];//UI‚ÌF‚ğ•Ï‚¦‚é
+                Image.sprite = Sprite[1];//UIã®è‰²ã‚’å¤‰ãˆã‚‹
                 Debug.Log("hit");
-                //UI‚ğEnemy‚ÌˆÊ’u‚É‚Á‚Ä‚¢‚­
+                //UIã‚’Enemyã®ä½ç½®ã«æŒã£ã¦ã„ã
             }
             else
             {
-                Image.sprite = Sprite[0];//•W€‚ÌF
+                Image.sprite = Sprite[0];//æ¨™æº–ã®è‰²
                 Debug.Log("no hit");
             }
             
